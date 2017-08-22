@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>A Pen by  Damir</title>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Gabriela|Noto+Serif|Prosto+One" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+    <form method="post" id="strong-search">
+        <input type="text" name="strong" id="strong" autofocus required/>
+    </form>
+    <button class="btn" id="iframe" style="left: 100px, top: 100px" value="go">GO</button>
+    <div class="ifrm-container" id="ifrm-container">
+       
+            <iframe class="lexicon" src="src.php"  ></iframe>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script type="text/javascript">
+  jQuery(document).ready(function(xTest){
+      var $form = $('#strong-search'),
+        url = "src.php";
+      
+      $(".btn").click(function(){
+          $.post("src.php", $('#strong-search').serialize(), function(data){
+              
+              $('.lexicon').html(data);
+              
+          });
+          $("#ifrm-container").css("right", "0px");
+      });
+      
+  });
+  </script>
+      
+  
+
+  
+</body>
+</html>
